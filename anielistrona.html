@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAK, WRÓCIŁAM.</title>
+  <style>
+    /* Reset i ogólne ustawienia */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff; 
+      color: #5d5558;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 16px 24px;
+    }
+
+    /* Główny kontener strony ograniczający szerokość */
+    .container {
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    /* Nagłówek główny */
+    .main-title {
+      color: #5d5558; /* Oliwkowo-zielony kolor tekstu */
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* Ramka ze zdjęciem */
+    .photo-wrapper {
+      width: 100%;
+      background-color: #ffffff;
+      padding: 12px;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-wrapper img {
+      width: auto;
+      height: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Sekcja FAQ */
+    .faq-section {
+      width: 100%;
+    }
+
+    .faq-title {
+      color: #5d5558;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Pojedyncze pytanie (details) */
+    details.faq-item {
+      width: 100%;
+      margin-bottom: 20px;
+      background-color: #5d5558;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Belka pytania (summary) */
+    details.faq-item summary {
+      list-style: none; /* Ukrywa domyślną strzałkę przeglądarki */
+      background-color: #a0b4d6;
+      color: #000000;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 18px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background-color 0.2s ease;
+    }
+
+    details.faq-item summary::-webkit-details-marker {
+      display: none; /* Ukrywa domyślną strzałkę w Safari i starym Chrome */
+    }
+
+    details.faq-item summary:hover {
+      background-color: #bfbabd;
+    }
+
+    /* Własna strzałka w kształcie trójkąta z projektu */
+    .arrow-icon {
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 16px solid #000000; /* Trójkąt skierowany w prawo */
+      transition: transform 0.25s ease;
+      transform-origin: center center;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    /* Obrót trójkąta do dołu, gdy sekcja jest otwarta */
+    details.faq-item[open] summary .arrow-icon {
+      transform: rotate(90deg);
+    }
+
+    /* Blok odpowiedzi */
+    .faq-content {
+      padding: 22px 20px 30px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #222222;
+      background-color: #e5e5e5;
+    }
+
+    /* Stopka na dole strony */
+    footer {
+      width: 100%;
+      max-width: 580px;
+      margin-top: 40px;
+      padding: 16px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #5d5558;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Tytuł strony -->
+    <h1 class="main-title">TAK, WRÓCIŁAM.</h1>
+
+    <!-- Miejsce na zdjęcie -->
+    <div class="photo-wrapper">
+      <img src="photo.jpg" alt="Zdjęcie powitalne">
+    </div>
+
+    <!-- Sekcja FAQ -->
+    <section class="faq-section">
+      <h2 class="faq-title">NAJCZĘŚCIEJ ZADAWANE PYTANIA</h2>
+
+      <!--(atrybut name="faq" zapewnia, że tylko jedno może być otwarte na raz) -->
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Jak to???</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>No, tak.</p>
+        </div>
+      </details>
+
+      <!-- Pytanie 2 -->
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Dlaczego?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>Ponieważ nie dostałam stypendium, ponieważ umowę finansową podpisują tylko ze studentami trzeciego roku.</p>
+        </div>
+      </details>
+
+      <!-- Pytanie 3 (przykładowy dodatkowy powtarzalny blok) -->
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>A nie jesteś teraz na trzecim roku?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>Ano, nie. W zeszłym roku, zamiast wpisu warunkowego przypadkiem dostałam powtarzanie roku, więc oficjalnie po dwóch latach na pierwszym roku, teraz jestem na drugim.  </p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Nie zorientwałaś się przed wyjazdem?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>Kiedy ostatnio sprawdzaliście, na którym roku jesteście? A nie dowiedziałam się przed wyjazdem, ponieważ umowę podpisywałam już po rozpoczęciu zajęć, korespondencyjnie. </p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Nie uważasz, że to było dość ryzykowne?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p> Nie. Ok, tak, ale nie miałam wyboru. Moja koordynatorka była na urlopie przez połowę wakacji, a przed samym wyjazdem, nie było terminów w BWZ. Postanowiłam, więc dopełnić tę formalność na miejscu, bo już rozpoczynały się zajęcia w Portugalii. </p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Czy możesz coś z tym jeszcze zrobić?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p> Nie, naprawdę próbowałam. </p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>I co, to wszystko?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>Chciałabym. Dodatkowy problem: nie mogę się bronić po tym roku, bo jest to przywilej trzeciego roku. </p>
+        </div>
+      </details>
+    </section>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Nie możesz zaliczyć całego roku awansem?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p> Mogę, ale to nie zmienia faktu, że nie mogę mieć teraz seminarium, a bez niego, nie mogę się bronić. </p>
+        </div>
+      </details>
+    </section>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Jak ci się w ogóle udało dostać na wyjazd?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>Dziekanat też nie wiedział, że jestem na pierwszym roku. Normalnie chodziłam na wszystkie zajęcia drugiego roku, zdałam egzaminy i nikt nie miał nic przeciwko. Gdyby nie erasmus, pewnie nikt by się nie zorientował do końca trzeciego roku.</p>
+        </div>
+      </details>
+    </section>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>Więc co zamierzasz?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>W tym roku będę chodzić na wszystkie zajęcia obowiązkowe trzeciego roku. W przyszłym chcę pojechać na erasmusa, zapisując się już tylko na ciekawe, dodatkowe przedmioty. I seminarium. </p>
+        </div>
+      </details>
+    </section>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>A przynajmniej było fajnie?</span>
+          <span class="arrow-icon"></span>
+        </summary>
+        <div class="faq-content">
+          <p>Było! Dzięki, że pytasz :) </p>
+        </div>
+      </details>
+    </section>
+
+  </div>
+
+  <!-- Stopka jako ostatni element po przewinięciu -->
+  <footer>
+    DZIĘKUJĘ ZA UWAGĘ, ELO!
+  </footer>
+
+</body>
+</html>
